@@ -42,77 +42,44 @@ public class Binary implements Comparable{
 
 	//====================Methods====================
 	public static String decToBin( int n ) {
-
 	int decNum = n;
-
 	int remainder = 0;
-
 	String retBin = "";
-
 	while (decNum > 1) {
-
 	    remainder = decNum%2;
-
 	    retBin = remainder+ retBin;
-
 	    decNum /= 2;
-
 	}
-
 	return retBin;
-
     }
 
 	public static String decToBinR( int n ) { 
-
 	String retBin = "";
-
 	if (n > 1) {
-
 	    retBin = decToBinR(n / 2) + n % 2;
-
 	}
-
 	return retBin;
-
     }
 
   public static int binToDec( String s ) {
-
 	int retDec = 0;
-
 	int exp = 0;
-
 	for (int i = s.length(); i > 0; i--) {
-
 	    retDec += Math.pow(2,exp)*Integer.parseInt(s.substring(i-1, i));
-
 	    exp ++;
-
 	}
-
 	return retDec;
-
   }
   
   public static int binToDecR( String s ) { 
-
 	int retDec = 0;
-
 	int exp = 0;
-
 	if (s.length() == 0) {
-
 	    retDec += Math.pow(2,exp)*Integer.parseInt(s.substring(s.length()-1, s.length()));
-
 	    exp ++;
-
 	    retDec += binToDecR(s.substring(0,s.length()-1));
-
 	}
-
 	return retDec;
-
     }
   
 	public String toString(){//Returns a string of the objects binary and deimal values.
